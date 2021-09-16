@@ -32,6 +32,8 @@ data class Role(
     val mentionable: Boolean get() = data.mentionable
 
     val name: String get() = data.name
+    
+    val icon: String get() = data.icon
 
     val permissions: Permissions get() = data.permissions
 
