@@ -7,6 +7,7 @@ import dev.kord.common.entity.Permissions
 import dev.kord.common.entity.Snowflake
 import dev.kord.common.entity.optional.Optional
 import dev.kord.common.entity.optional.map
+import dev.kord.core.KordObject
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -20,7 +21,8 @@ data class RoleData(
     val permissions: Permissions,
     val managed: Boolean,
     val mentionable: Boolean,
-    val tags: Optional<RoleTagsData> = Optional.Missing()
+    val tags: Optional<RoleTagsData> = Optional.Missing(),
+    val icon: String?
 ) {
     companion object {
         val description = description(RoleData::id)
@@ -36,7 +38,7 @@ data class RoleData(
                 permissions,
                 managed,
                 mentionable,
-                tags.map { RoleTagsData.from(it) })
+                tags.map { RoleTagsData.from(it) }, icon)
         }
 
         fun from(entity: DiscordGuildRole) = from(entity.guildId, entity.role)

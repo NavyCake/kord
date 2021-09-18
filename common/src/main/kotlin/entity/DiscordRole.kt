@@ -24,6 +24,7 @@ data class DiscordRole(
     val managed: Boolean,
     val mentionable: Boolean,
     val tags: Optional<DiscordRoleTags> = Optional.Missing(),
+    val icon: String?
 )
 
 @Serializable
@@ -46,6 +47,7 @@ data class DiscordPartialRole(
     val managed: OptionalBoolean = OptionalBoolean.Missing,
     val mentionable: OptionalBoolean = OptionalBoolean.Missing,
     val tags: Optional<DiscordRoleTags> = Optional.Missing(),
+    val icon: Optional<String> = Optional.Missing()
 )
 
 @Serializable
@@ -58,6 +60,7 @@ data class DiscordAuditLogRoleChange(
     val permissions: Permissions? = null,
     val managed: Boolean? = null,
     val mentionable: Boolean? = null,
+    val icon: String?
 )
 
 @Serializable
